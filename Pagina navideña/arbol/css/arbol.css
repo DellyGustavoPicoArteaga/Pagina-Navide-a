@@ -1,0 +1,136 @@
+/* arbol.css: Estilos principales y animación de nieve */
+
+:root {
+    --color-rojo-navidad: #c0392b; /* Rojo Intenso */
+    --color-verde-navidad: #27ae60; /* Verde Pino */
+    --color-dorado: #f1c40f; /* Dorado / Amarillo */
+    --color-fondo-claro: #ecf0f1; /* Gris Claro */
+}
+
+body {
+    margin: 0;
+    /* Fuente elegante para títulos y una fuente legible para el cuerpo */
+    font-family: 'Open Sans', Arial, sans-serif; 
+    /* Fondo con gradiente festivo (rojo y verde suave) */
+    background: linear-gradient(135deg, var(--color-verde-navidad) 0%, var(--color-fondo-claro) 50%, var(--color-rojo-navidad) 100%);
+    color: #333; /* Texto oscuro para mejor contraste */
+    text-align: center;
+    /* overflow: hidden; /* Permitimos el scroll para ver el contenido agregado */
+    padding-bottom: 80px; /* Espacio para el footer fijo */
+}
+
+header {
+    padding: 60px 20px 40px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    border-bottom: 5px solid var(--color-dorado);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive; /* Fuente cursiva y elegante para el título */
+    font-size: 4.5em; /* Más grande */
+    color: var(--color-rojo-navidad); 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    font-size: 1.5em;
+    color: var(--color-verde-navidad);
+    font-weight: 700;
+}
+
+.arbol {
+    font-size: 100px; /* Un poco más grande para destacar */
+    margin: 0 auto 10px;
+    animation: bounce 2s infinite; /* Animación de rebote sutil */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.tarjeta {
+    background: white; /* Fondo blanco para el contenido */
+    padding: 30px;
+    max-width: 700px;
+    margin: 40px auto;
+    border-radius: 20px;
+    border: 3px solid var(--color-verde-navidad); /* Borde de color */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px); /* Efecto al pasar el mouse */
+}
+
+.tarjeta h2 {
+    color: var(--color-rojo-navidad);
+    border-bottom: 2px dashed var(--color-dorado);
+    padding-bottom: 10px;
+}
+
+.autor {
+    font-style: italic;
+    font-weight: bold;
+    color: #555;
+    margin-top: 20px;
+    text-align: right;
+}
+
+footer {
+    background: var(--color-verde-navidad);
+    color: white;
+    padding: 20px 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.social-links a {
+    color: var(--color-dorado);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Animación de nieve (usaremos un div contenedor) */
+#nieve {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.snowflake {
+    position: absolute;
+    color: #f0f8ff; /* Blanco ligeramente azulado */
+    font-size: 20px;
+    animation: caer linear infinite;
+    user-select: none;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Brillo sutil */
+}
+
+@keyframes caer {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.5;
+    }
+}
